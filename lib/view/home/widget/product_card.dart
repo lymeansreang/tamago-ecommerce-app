@@ -38,6 +38,7 @@ class ProductCard extends StatelessWidget {
                       child: FloatingActionButton.extended(
                         onPressed: (){},
                         backgroundColor: white,
+                        hoverColor: secondary,
                         label: Row(
                           children: [
                             Text('ADD'),
