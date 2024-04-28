@@ -17,9 +17,10 @@ class ApiService {
     return responseJson;
   }
 
-  dynamic returnResponse(http.Response response) {
+  returnResponse(http.Response response) {
     switch(response.statusCode) {
       case 200:
+        print ('jsonDecode ${jsonDecode(response.body)}');
         return jsonDecode(response.body);
       case 500:
         throw BadRequestException('Please check your request body');

@@ -6,7 +6,7 @@ String productModelToJson(ProductModel data) => json.encode(data.toJson());
 
 class ProductModel {
   int? currentPage;
-  List<ProductData>? data;
+  List<Datum>? data;
 
   ProductModel({
     this.currentPage,
@@ -15,7 +15,7 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
     currentPage: json["current_page"],
-    data: json["data"] == null ? [] : List<ProductData>.from(json["data"]!.map((x) => ProductData.fromJson(x))),
+    data: json["data"] == null ? [] : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -24,7 +24,7 @@ class ProductModel {
   };
 }
 
-class ProductData {
+class Datum {
   int? id;
   int? categoryId;
   int? brandId;
@@ -33,12 +33,12 @@ class ProductData {
   int? isAvailable;
   int? price;
   int? amount;
-  int? discount;
+  dynamic discount;
   String? image;
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  ProductData({
+  Datum({
     this.id,
     this.categoryId,
     this.brandId,
@@ -53,7 +53,7 @@ class ProductData {
     this.updatedAt,
   });
 
-  factory ProductData.fromJson(Map<String, dynamic> json) => ProductData(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
     id: json["id"],
     categoryId: json["category_id"],
     brandId: json["brand_id"],
