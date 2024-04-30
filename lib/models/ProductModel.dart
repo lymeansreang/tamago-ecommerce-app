@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final productModel = productModelFromJson(jsonString);
+
 import 'dart:convert';
 
 ProductModel productModelFromJson(String str) => ProductModel.fromJson(json.decode(str));
@@ -5,81 +9,141 @@ ProductModel productModelFromJson(String str) => ProductModel.fromJson(json.deco
 String productModelToJson(ProductModel data) => json.encode(data.toJson());
 
 class ProductModel {
-  int? currentPage;
   List<Datum>? data;
 
   ProductModel({
-    this.currentPage,
     this.data,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    currentPage: json["current_page"],
     data: json["data"] == null ? [] : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
-    "current_page": currentPage,
     "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
   };
 }
 
 class Datum {
   int? id;
-  int? categoryId;
-  int? brandId;
-  String? name;
-  int? isTrendy;
-  int? isAvailable;
-  int? price;
-  int? amount;
-  dynamic discount;
-  String? image;
-  DateTime? createdAt;
-  DateTime? updatedAt;
+  DatumAttributes? attributes;
 
   Datum({
     this.id,
-    this.categoryId,
-    this.brandId,
-    this.name,
-    this.isTrendy,
-    this.isAvailable,
-    this.price,
-    this.amount,
-    this.discount,
-    this.image,
-    this.createdAt,
-    this.updatedAt,
+    this.attributes,
   });
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
     id: json["id"],
-    categoryId: json["category_id"],
-    brandId: json["brand_id"],
-    name: json["name"],
-    isTrendy: json["is_trendy"],
-    isAvailable: json["is_available"],
-    price: json["price"],
-    amount: json["amount"],
-    discount: json["discount"],
-    image: json["image"],
-    createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
-    updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+    attributes: json["attributes"] == null ? null : DatumAttributes.fromJson(json["attributes"]),
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "category_id": categoryId,
-    "brand_id": brandId,
+    "attributes": attributes?.toJson(),
+  };
+}
+
+class DatumAttributes {
+  String? name;
+  String? category;
+  int? discount;
+  double? deliveryFee;
+  int? deliveryTime;
+  DateTime? createdAt;
+  DateTime? updatedAt;
+  DateTime? publishedAt;
+  Picture? picture;
+
+  DatumAttributes({
+    this.name,
+    this.category,
+    this.discount,
+    this.deliveryFee,
+    this.deliveryTime,
+    this.createdAt,
+    this.updatedAt,
+    this.publishedAt,
+    this.picture,
+  });
+
+  factory DatumAttributes.fromJson(Map<String, dynamic> json) => DatumAttributes(
+    name: json["name"],
+    category: json["category"],
+    discount: json["discount"],
+    deliveryFee: json["deliveryFee"]?.toDouble(),
+    deliveryTime: json["deliveryTime"],
+    createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
+    updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
+    publishedAt: json["publishedAt"] == null ? null : DateTime.parse(json["publishedAt"]),
+    picture: json["picture"] == null ? null : Picture.fromJson(json["picture"]),
+  );
+
+  Map<String, dynamic> toJson() => {
     "name": name,
-    "is_trendy": isTrendy,
-    "is_available": isAvailable,
-    "price": price,
-    "amount": amount,
+    "category": category,
     "discount": discount,
-    "image": image,
-    "created_at": createdAt?.toIso8601String(),
-    "updated_at": updatedAt?.toIso8601String(),
+    "deliveryFee": deliveryFee,
+    "deliveryTime": deliveryTime,
+    "createdAt": createdAt?.toIso8601String(),
+    "updatedAt": updatedAt?.toIso8601String(),
+    "publishedAt": publishedAt?.toIso8601String(),
+    "picture": picture?.toJson(),
+  };
+}
+
+class Picture {
+  Data? data;
+
+  Picture({
+    this.data,
+  });
+
+  factory Picture.fromJson(Map<String, dynamic> json) => Picture(
+    data: json["data"] == null ? null : Data.fromJson(json["data"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "data": data?.toJson(),
+  };
+}
+
+class Data {
+  int? id;
+  DataAttributes? attributes;
+
+  Data({
+    this.id,
+    this.attributes,
+  });
+
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
+    id: json["id"],
+    attributes: json["attributes"] == null ? null : DataAttributes.fromJson(json["attributes"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "attributes": attributes?.toJson(),
+  };
+}
+
+class DataAttributes {
+  String? name;
+  String? url;
+
+  DataAttributes({
+    this.name,
+    this.url,
+  });
+
+  factory DataAttributes.fromJson(Map<String, dynamic> json) => DataAttributes(
+    name: json["name"],
+    url: json["url"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "name": name,
+    "url": url,
   };
 }

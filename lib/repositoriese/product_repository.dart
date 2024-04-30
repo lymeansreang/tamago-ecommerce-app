@@ -12,13 +12,13 @@ class ProductRepository{
     try{
       dynamic responses = await
                 _apiService.getApiResponse(AppUrl.getAllProducts);
-      print('response ${responses["data"][0]["name"]}');
+      // print('response ${responses["data"][0]["name"]}');
       // print('response : $responses');
       // print('jsonDecode ${jsonDecode(responses)}');
-      print('Response in model ${ProductModel.fromJson(responses)}');
+      // print('Response in model ${ProductModel.fromJson(responses)}');
       return ProductModel.fromJson(responses);
     }catch (e){
-      print('Error $e');
+      // print('Error $e');
       rethrow;
     }
   }

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tamago/color.dart';
 
+import '../../../models/ProductModel.dart';
+
 class ProductCard extends StatelessWidget {
-  const ProductCard({
-    super.key,
+
+  Datum? product;
+
+  ProductCard({
+    this.product
   });
 
   @override
@@ -22,14 +27,13 @@ class ProductCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(60),
                       color: white,
                     ),
-                    child: IconButton(
-                      icon: Image.asset('assets/images/jacket.png',
-                        height: 300,
-                        width: MediaQuery.of(context).size.width * .45,
-                        fit: BoxFit.fitHeight,
-                      ),
-                      onPressed: () {  },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(60),
+                      child: Image.network('${product?.attributes!.picture!.data!.attributes!.url!}',
+                          fit: BoxFit.cover,
+                        ),
                     ),
+
                   ),
                 ),
                   Positioned(
@@ -53,11 +57,11 @@ class ProductCard extends StatelessWidget {
                       ),
                   ),
 
-                  const Positioned(
+                  Positioned(
                     top: 320,
                     bottom: 0,
                     left: 50,
-                    child: Text("Product name"),
+                    child:  Text('${product!.attributes!.name!}'),
                   ),
                   const Positioned(
                       top: 350,

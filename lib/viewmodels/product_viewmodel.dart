@@ -13,7 +13,7 @@ class ProductViewModel extends ChangeNotifier {
   }
   Future<dynamic?> getAllProducts() async => await _productRepo.getProducts()
         .then((products) {
-          print('response in viewmodel ${products.data!.length}');
+          // print('response in viewmodel ${products.data!.length}');
           setProductList(ApiResponse.completed(products));
         })
         .onError((error, stackTrace) => setProductList(ApiResponse.error(stackTrace.toString())));
