@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamago/color.dart';
+import 'package:tamago/view/account/profile.dart';
 
 class Myappbar extends StatelessWidget implements PreferredSizeWidget{
   const Myappbar({
@@ -25,9 +26,11 @@ class Myappbar extends StatelessWidget implements PreferredSizeWidget{
       //   fontWeight: FontWeight.bold,),
       // ),
       actions: [
-        Icon(Icons.search,color: black,),
         const SizedBox(width: 10,),
-        Icon(Icons.shopping_cart_outlined, color: black),
+        IconButton( icon: Icon(Icons.person,color: black,),  onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>MyProfile())
+          );
+        },),
         const SizedBox(width: 10,),
       ],
     );

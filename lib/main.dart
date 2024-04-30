@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: primary,
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'TamaGo')
+      home: const MyHomePage(title: 'TamaGo'),
 
     );
   }

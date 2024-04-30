@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamago/view/category/all_shop.dart';
 
 import '../../../color.dart';
 
@@ -12,7 +13,7 @@ class CatagoryTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Category",
+        Text("Shop Category",
           style: TextStyle(
             fontSize: 24,
             fontFamily: 'Titan',
@@ -21,7 +22,10 @@ class CatagoryTitle extends StatelessWidget {
         ),
         Padding(
             padding: EdgeInsets.only(right: 15),
-            child: TextButton(onPressed: (){},
+            child: TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyAllShop())
+              );
+            },
                 child: Text("View all",
                   style: TextStyle(
                     color: mgrey,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamago/color.dart';
+import 'package:tamago/view/detail/detail_screen.dart';
 
 import '../../../models/ProductModel.dart';
 
@@ -24,12 +25,12 @@ class ProductCard extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * .45,
                     height: 280,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(60),
+                      borderRadius: BorderRadius.circular(15),
                       color: white,
                     ),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(60),
-                      child: Image.network('${product?.attributes!.picture!.data!.attributes!.url!}',
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.network('https://cms.istad.co${product!.attributes!.picture!.data!.attributes!.url!}',
                           fit: BoxFit.cover,
                         ),
                     ),
@@ -38,17 +39,17 @@ class ProductCard extends StatelessWidget {
                 ),
                   Positioned(
                     top: 260,
-                      left: 50,
+                      left: 60,
                       child: FloatingActionButton.extended(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> MyDetail()));
+                        },
                         backgroundColor: white,
                         hoverColor: secondary,
                         label: Row(
                           children: [
-                            Text('ADD'),
+                            Text('Details'),
                             SizedBox(width: 3,),
-                            Icon(Icons.add_circle,
-                              color: secondary,)
                           ],
                         ),
                         shape: RoundedRectangleBorder(
@@ -60,14 +61,20 @@ class ProductCard extends StatelessWidget {
                   Positioned(
                     top: 320,
                     bottom: 0,
-                    left: 50,
-                    child:  Text('${product!.attributes!.name!}'),
+                    left: 60,
+                    child:  Text('${product!.attributes!.name!}',
+                    style: TextStyle(
+                      fontFamily: 'Titan'
+                    ),),
                   ),
-                  const Positioned(
-                      top: 350,
+                  Positioned(
+                      top: 340,
                       bottom: 0,
                       left: 85,
-                      child: Text('Price'))
+                      child: Text('${product!.attributes!.discount!}\$  ',
+                      style: TextStyle(
+                      ),),
+                  )
                   // Container(
                   //   width: MediaQuery.of(context).size.width * .45,
                   //   height: 280,

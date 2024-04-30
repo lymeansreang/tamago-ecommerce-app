@@ -13,13 +13,13 @@ class DiscountPoster extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10),
           child: Container(
-            width: MediaQuery.of(context).size.width * .85,
+            width: MediaQuery.of(context).size.width * .95,
             height: 350,
             decoration: BoxDecoration(
               color: black,
               borderRadius: BorderRadius.circular(50),
               image: const DecorationImage(
-                image: AssetImage("assets/images/poster.jpg",),
+                image: AssetImage("assets/images/poster2.jpg",),
                 fit: BoxFit.fitHeight,
               ),
             ),

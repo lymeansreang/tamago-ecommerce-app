@@ -11,11 +11,11 @@ class CategoryName extends StatelessWidget {
       children: [
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(left: 22),
-            child: Text('Shirt',
+            padding: EdgeInsets.only(left: 30),
+            child: Text('Drink',
               style: TextStyle(
                 fontFamily: 'Mochi',
-                fontSize: 13,
+                fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -23,11 +23,11 @@ class CategoryName extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(left: 17),
-            child: Text('Jean',
+            padding: EdgeInsets.only(left: 25),
+            child: Text('Food',
               style: TextStyle(
                 fontFamily: 'Mochi',
-                fontSize: 13,
+                fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -35,23 +35,35 @@ class CategoryName extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: Text('Bag',
+            padding: EdgeInsets.only(left: 15),
+            child: Text('Snack',
               style: TextStyle(
                 fontFamily: 'Mochi',
-                fontSize: 13,
+                fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
         ),
+        // Expanded(
+        //   child: Padding(
+        //     padding: EdgeInsets.only(left: 7),
+        //     child: Text('Ice Cream',
+        //       style: TextStyle(
+        //         fontFamily: 'Mochi',
+        //         fontSize: 11,
+        //         fontWeight: FontWeight.bold,
+        //       ),
+        //     ),
+        //   ),
+        // ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(left: 7),
-            child: Text('Shoes',
+            padding: EdgeInsets.only(left: 15),
+            child: Text('Mart',
               style: TextStyle(
                 fontFamily: 'Mochi',
-                fontSize: 13,
+                fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -60,22 +72,10 @@ class CategoryName extends StatelessWidget {
         Expanded(
           child: Padding(
             padding: EdgeInsets.only(left: 1),
-            child: Text('Jacket',
+            child: Text('Cosmetic',
               style: TextStyle(
                 fontFamily: 'Mochi',
-                fontSize: 13,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(left: 4),
-            child: Text('Short',
-              style: TextStyle(
-                fontFamily: 'Mochi',
-                fontSize: 13,
+                fontSize: 11,
                 fontWeight: FontWeight.bold,
               ),
             ),

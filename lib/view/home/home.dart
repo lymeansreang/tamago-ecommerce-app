@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:tamago/models/ProductModel.dart';
 import 'package:tamago/view/home/widget/app_bar.dart';
@@ -7,6 +8,7 @@ import 'package:tamago/view/home/widget/category_name.dart';
 import 'package:tamago/view/home/widget/category_title.dart';
 import 'package:tamago/view/home/widget/discount_poster.dart';
 import 'package:tamago/view/home/widget/product_card.dart';
+import 'package:tamago/view/widgets/bottom_navigation.dart';
 import 'package:tamago/viewmodels/product_viewmodel.dart';
 
 import '../../color.dart';
@@ -43,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height:380,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 3,
+                  itemCount: 1,
                   itemBuilder: (context,index){
                     return const DiscountPoster();
                   }),
@@ -74,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(left:15 ,top: 30),
-              child: Text("Items",
+              child: Text("Shop name",
                 style: TextStyle(
                   fontSize: 24,
                   fontFamily: 'Titan',
@@ -115,10 +117,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
         ],
       ),
+      bottomNavigationBar: BottomNav(),
     );
 
   }
 }
+
+
 
 
 
