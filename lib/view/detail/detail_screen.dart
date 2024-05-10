@@ -16,7 +16,7 @@ class MyDetail extends StatelessWidget {
       body: Container(
         child: DetailCard(),
       ),
-      bottomNavigationBar: BottomNav()
+      // bottomNavigationBar: BottomNav()
     );
   }
 }

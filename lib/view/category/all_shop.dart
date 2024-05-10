@@ -21,7 +21,7 @@ class MyAllShop extends StatelessWidget {
             },
         ),
       ),
-      bottomNavigationBar: BottomNav()
+      // bottomNavigationBar: BottomNav()
     );
   }
 }
